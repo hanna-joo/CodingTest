@@ -6,7 +6,7 @@
 
 ## 수학, 시뮬레이션, 문자열, 조건문 , 반복문
 
-### 1. A로 B 만들기
+### 3. A로 B 만들기
 
 ```python
 def solution(before, after):
@@ -25,7 +25,7 @@ def solution(before, after):
 
 
 
-### 2. k의 개수
+### 4. k의 개수
 
 ```python
 def solution(i, j, k):
