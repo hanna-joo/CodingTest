@@ -40,3 +40,9 @@
   - 리스트 외에도 iterable 객체에 대해 사용 가능
   - 새로운 정렬 리스트 반환
   - x[0] 내림차순으로 1차 정렬, 값이 동일한 경우 abs(x[1]-x[0]) 값으로 2차 정렬
+  
+ - lambda 함수
+  - `(lambda x: True if x.count('p')==x.count('y') else False)(s.lower())`
+ - float.is_integer()
+  - 실수가 정수인지 아닌지 판단해서 bool 값 리턴
+ 
