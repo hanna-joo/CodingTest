@@ -22,6 +22,11 @@ def solution(x, n):
     return list(range(x, x*n+1, x)) if x>0 else list(range(x, x*n-1, x)) if x<0 else [0 for _ in range(n)]
 ```
 
+```python
+def solution(x, n):
+    return [x+i*x for i in range(n)]
+```
+
 
 
 ### 3. 정수 내림차순으로 배치하기
