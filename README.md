@@ -18,7 +18,7 @@
   - `str.rjust(width, [, fillchar])`
     - 문자열을 오른쪽으로 정렬하고 왼쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
   - `str.ljust(width, [, fillchar])`
-    - 문자열을 오른쪽으로 정렬하고 오른쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
+    - 문자열을 왼쪽으로 정렬하고 오른쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
   
 - `eval(expression)`
   - 문자열로 이루어진 expression 을 python 코드로 인식하여 실행
