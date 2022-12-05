@@ -13,6 +13,13 @@
   - `문자열.isdecimal()` : 문자열이 int 형으로 변환 가능한지 검사
   - `문자열.isdigit()` : 문자열이 숫자로 이루어져 있는지 검사(거듭제곱 특수문자도 인정)
   - `문자열.isnumeric()` : 문자열이 수로 볼 수 있는지 검사(제곱근, 분수, 거듭제곱 특수문자 인정)
+  - `str.zfill(width)`
+    - width(숫자)보다 문자열 자릿수가 적으면 그 앞부분을 0으로 채워줌
+  - `str.rjust(width, [, fillchar])`
+    - 문자열을 오른쪽으로 정렬하고 왼쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
+  - `str.ljust(width, [, fillchar])`
+    - 문자열을 오른쪽으로 정렬하고 오른쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
+  
 - `eval(expression)`
   - 문자열로 이루어진 expression 을 python 코드로 인식하여 실행
 - slicing, indexing
