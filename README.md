@@ -57,17 +57,15 @@
 ## 함수
 - itertools 함수 사용
   - `product('ABCD', repeat=2)` : 데카르트 곱, 중첩된 for 문과 동일
-    - AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD
+    - `AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD`
   - `permutations('ABCD', 2)` : r- 길이 튜플들, 모든 가능한 순서, 반복되는 요소 없음
-    - AB AC AD BA BC BD CA CB CD DA DB DC
+    - `AB AC AD BA BC BD CA CB CD DA DB DC`
   - `combinations('ABCD', 2)` : r-길이 튜플들, 정렬된 순서, 반복되는 요소 없음
-    - AB AC AD BC BD CD
+    - `AB AC AD BC BD CD`
   - `combinations_with_replacement('ABCD', 2)` : r- 길이 튜플들, 모든 가능한 순서, 반복되는 요소 있음
-    - AA AB AC AD BB BC BD CC CD DD
+    - `AA AB AC AD BB BC BD CC CD DD`
 ```python
 from itertools import combinations
 def solution(nums):
     return sum(1 for combi in combinations(nums, 3) if sum(combi) == 0)
 ```
-
-- 
