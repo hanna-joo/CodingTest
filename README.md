@@ -1,5 +1,9 @@
 # Today I Learned (TIL)
-
+---
+1. [문자열](#문자열)
+2. [float](#float)
+3. [list](#list-자료형)
+---
 221025 ~ 221114
 ## 문자열
 - string 은 수정이 불가능한 자료형
