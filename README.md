@@ -69,3 +69,14 @@ from itertools import combinations
 def solution(nums):
     return sum(1 for combi in combinations(nums, 3) if sum(combi) == 0)
 ```
+## 날짜
+- `datetime(2022,12,08).strftime()` : 문자열로 반환
+  - `%Y` : 앞의 빈자리를 0으로 채우는 4자리 연도
+  - `%m` : 앞의 빈자리를 0으로 채우는 2자리 월
+  - `%d` : 앞의 빈자리를 0으로 채우는 2자리 일
+  - `%H` : 앞의 빈자리를 0으로 채우는 24시간 형식 2자리 시간
+  - `%M` : 앞의 빈자리를 0으로 채우는 2자리 분
+  - `%S` : 앞의 빈자리를 0으로 채우는 2자리 초
+  - `%A` : 영어로 된 요일 문자열
+  - `%a` : 영어로 된 요일(요약어) 문자열
+  - `%B` : 영어로 된 월 문자열
