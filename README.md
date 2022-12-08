@@ -4,10 +4,9 @@
 2. [Float](#Float)
 3. [List](#List)
 4. [Set](#Set)
-5. [lambda 함수](#lambda-함수)
+5. [함수](#함수)
 6. [기타](#기타)
-7. [함수](#함수)
-8. [날짜](#날짜)
+7. [날짜](#날짜)
 ---
 221025 ~ 221114
 ## String
@@ -56,13 +55,6 @@
   - 리스트 외에도 iterable 객체에 대해 사용 가능
   - 새로운 정렬 리스트 반환
   - x[0] 내림차순으로 1차 정렬, 값이 동일한 경우 abs(x[1]-x[0]) 값으로 2차 정렬
-## lambda 함수
-- `(lambda x: True if x.count('p')==x.count('y') else False)(s.lower())`
-## 기타
-- `eval(expression)`
-  - 문자열로 이루어진 expression 을 python 코드로 인식하여 실행
-- `try~except`
-  - try 구문에서 에러 발생 시 에러 발생 구문 아래의 구문은 스킵
 ## 함수
 - itertools 함수 사용
   - `product('ABCD', repeat=2)` : 데카르트 곱, 중첩된 for 문과 동일
@@ -78,6 +70,13 @@ from itertools import combinations
 def solution(nums):
     return sum(1 for combi in combinations(nums, 3) if sum(combi) == 0)
 ```
+## 기타
+- `eval(expression)`
+  - 문자열로 이루어진 expression 을 python 코드로 인식하여 실행
+- `try~except`
+  - try 구문에서 에러 발생 시 에러 발생 구문 아래의 구문은 스킵
+- lambda 함수
+  - `(lambda x: True if x.count('p')==x.count('y') else False)(s.lower())`
 ## 날짜
 - `datetime(2022,12,08).strftime()` : 문자열로 반환
   - `%Y` : 앞의 빈자리를 0으로 채우는 4자리 연도
