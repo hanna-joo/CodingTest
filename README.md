@@ -1,11 +1,16 @@
 # Today I Learned (TIL)
 ---
-1. [문자열](#문자열)
-2. [float](#float)
-3. [list](#list-자료형)
+1. [String](#String)
+2. [Float](#Float)
+3. [List](#List)
+4. [Set](#Set)
+5. [lambda 함수](#lambda-함수)
+6. [기타](#기타)
+7. [함수](#함수)
+8. [날짜](#날짜)
 ---
 221025 ~ 221114
-## 문자열
+## String
 - string 은 수정이 불가능한 자료형
 - `문자열.join(리스트)`
 - `문자열.split(구분자)`
@@ -20,16 +25,16 @@
   - 문자열을 오른쪽으로 정렬하고 왼쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
 - `str.ljust(width, [, fillchar])`
   - 문자열을 왼쪽으로 정렬하고 오른쪽의 남은 공백(`width-문자열 자릿수`)을 특정 문자열로 채워줌, 기본값은 space
-## float
+## Float
 - `float.is_integer()`
   - 실수가 정수인지 아닌지 판단해서 bool 값 리턴
-## list 자료형
+## List
 - `list.count(문자열/숫자)` : 리스트 안의 해당 문자열/숫자의 개수 반환
 - `list.pop(인덱스)` : 인덱스에 해당하는 값 리스트에서 빼서 반환
 - slicing, indexing
   - slicing 은 Index Out Of Range 에도 작동
   - indexing 은 Index Out Of Range 에 에러 발생
-## set 자료형
+## Set
 - `set(iterable)`
   - iterable 객체의 unique 값을 얻을 때도 사용
   - 교집합, 합집합, 차집합 구할 때 유용
