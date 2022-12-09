@@ -78,7 +78,7 @@ def solution(nums):
 - lambda 함수
   - `(lambda x: True if x.count('p')==x.count('y') else False)(s.lower())`
 - 소수 판별 알고리즘
-  - [에라스토스테네스의 체]('github.com/hanna-joo/CodingTest/codingtest_221209.md')
+  - [에라스토스테네스의 체]('https://github.com/hanna-joo/CodingTest/blob/master/codingtest_221209.md')
 ## 날짜
 - `datetime(2022,12,08).strftime()` : 문자열로 반환
   - `%Y` : 앞의 빈자리를 0으로 채우는 4자리 연도
