@@ -24,5 +24,6 @@ for i in range(m):
     if remainder_cnt[i] > 1:
         answer += (remainder_cnt[i] * (remainder_cnt[i] - 1) // 2)
 
+# 정답 출력
 print(answer)
 #print(remainder_arr, remainder_cnt)
