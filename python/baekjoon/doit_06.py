@@ -6,7 +6,7 @@
 n = int(input())
 start_idx, end_idx, num_sum, answer = 1, 1, 1, 1
 
-# sum 과 n 비교해서 처리
+# 투 포인터 활용 : sum 과 n 비교해서 처리
 while end_idx < n:
     if num_sum == n:
         answer += 1

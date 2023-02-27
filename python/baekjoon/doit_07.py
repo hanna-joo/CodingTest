@@ -9,7 +9,7 @@ material = sorted(list(map(int, input().split()))) # 정렬 알고리즘의 시�
 start_idx, end_idx = 0, n - 1
 answer = 0
 
-# 투 포인터 활용
+# 투 포인터 활용 : 두 개의 수 합과 m 비교해서 처리
 while start_idx < end_idx:
     material_sum = material[start_idx] + material[end_idx]
     if material_sum < m:
