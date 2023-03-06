@@ -11,3 +11,4 @@ answer = 0
 # 슬라이딩 윈도우 활용
 
 # 정답 출력
+print(answer)
