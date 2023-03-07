@@ -5,10 +5,21 @@
 # 문자열 길이 |S|와 비밀번호 길이 |P|(1<=|P|<=|S|<=1,000,000)
 
 # 필요 변수 선언 및 초기화
-s, p = map(int, input().split())
+dna_len, pwd_len = map(int, input().split())
+dna_str = list(input())
+chk_acgt = list(map(int, input().split()))
 answer = 0
 
-# 슬라이딩 윈도우 활용
+# 슬라이딩 윈도우 활용 X
+for i in range(dna_len - pwd_len):
+    now_pwd = dna_str[i:i+pwd_len-1]
+    now_acgt = [now_pwd.count('A'), now_pwd.count('C'), now_pwd.count('G'), now_pwd.count('T')]
+    for j in range(4):
+        if now_acgt[j] < chk_acgt[j]:
+            break
+        answer += 1
+
+# 슬라이딩 윈도우 활용 O
 
 # 정답 출력
 print(answer)
