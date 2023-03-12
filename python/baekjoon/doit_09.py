@@ -21,7 +21,6 @@ for i in range(dna_len - pwd_len):
 '''
 
 # 슬라이딩 윈도우 활용 O
-
 # 전역 변수 선언
 chk_acgt = [0] * 4 # 비밀번호 되기 위한 최소 a,c,g,t 개수
 now_acgt = [0] * 4 # 현재 문자열의 a,c,g,t 개수
@@ -72,7 +71,23 @@ dna_str = list(input())
 chk_acgt = list(map(int, input().split()))
 answer = 0
 
-# 초기 문자열 처리
+# 최소 개수가 0인 문자열은 조건 충족
+for i in range(4):
+    if chk_acgt[i] == 0:
+        pass_cnt += 1
+
+# 첫번째 문자열 처리
+for i in range(pwd_len):
+    add_char(dna_len[i])
+if pass_cnt == 4:
+    answer += 1
+
+# 슬라이딩 윈도우로 한 글자씩 뒤로 가기
+for i in range(pwd_len, dna_len):
+    add_char(dna_str(i))
+    remove_char(dna_str(i-pwd_len))
+    if pass_cnt == 4:
+        answer += 1
 
 # 정답 출력
 print(answer)
