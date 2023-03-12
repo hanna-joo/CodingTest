@@ -42,8 +42,8 @@ def add_char(c): # 슬라이딩 윈도우에 추가된 문자 처리
         if now_acgt[2] == chk_acgt[2]:
             pass_cnt += 1
     elif c == 'T':
-        now_acgt[2] += 1
-        if now_acgt[2] == chk_acgt[2]:
+        now_acgt[3] += 1
+        if now_acgt[3] == chk_acgt[3]:
             pass_cnt += 1
 
 def remove_char(c): # 슬라이딩 윈도우에서 제거된 문자 처리
@@ -51,19 +51,19 @@ def remove_char(c): # 슬라이딩 윈도우에서 제거된 문자 처리
     if c == 'A':
         if now_acgt[0] == chk_acgt[0]:
             pass_cnt -= 1
-        now_actg -= 1
+        now_acgt[0] -= 1
     elif c == 'C':
         if now_acgt[1] == chk_acgt[1]:
             pass_cnt -= 1
-        now_acgt -= 1        
+        now_acgt[1] -= 1        
     elif c == 'G':
         if now_acgt[2] == chk_acgt[2]:
             pass_cnt -= 1
-        now_acgt -= 1
+        now_acgt[2] -= 1
     elif c == 'T':
         if now_acgt[3] == chk_acgt[3]:
             pass_cnt -= 1
-        now_acgt -= 1
+        now_acgt[3] -= 1
 
 # 필요 변수 선언
 dna_len, pwd_len = map(int, input().split())
@@ -78,14 +78,14 @@ for i in range(4):
 
 # 첫번째 문자열 처리
 for i in range(pwd_len):
-    add_char(dna_len[i])
+    add_char(dna_str[i])
 if pass_cnt == 4:
     answer += 1
 
 # 슬라이딩 윈도우로 한 글자씩 뒤로 가기
 for i in range(pwd_len, dna_len):
-    add_char(dna_str(i))
-    remove_char(dna_str(i-pwd_len))
+    add_char(dna_str[i])
+    remove_char(dna_str[i-pwd_len])
     if pass_cnt == 4:
         answer += 1
 
