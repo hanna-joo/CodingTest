@@ -11,7 +11,7 @@
   - 데크(deque) : 양방향 큐로 양쪽 방향에서 엘리먼트를 append 하거나 pop 가능
   - 일반적인 리스트가 양끝 엘리먼트에 접근하여 append, pop하는 경우 O(n) 소요
   - 데크의 경우 O(1) 소요
-  - deque.append(item), deque.appendleft(item), deque.pop(), deque.popleft()
+  - `deque.append(item)`, `deque.appendleft(item)`, `deque.pop()`, `deque.popleft()`
 - 문제 : doit_09 ~ doit_10
 ## 1.4. 스택과 큐
 - 문제 : doit_11 ~ doit_14
