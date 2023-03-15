@@ -14,4 +14,14 @@
   - `deque.append(item)`, `deque.appendleft(item)`, `deque.pop()`, `deque.popleft()`
 - 문제 : doit_09 ~ doit_10
 ## 1.4. 스택과 큐
-- 문제 : doit_11 ~ doit_14
+- 스택(stack) : 삽입과 삭제 연산이 후입선출로 이루어지는 자료구조
+  - 삽입과 삭제가 한 쪽(top)에서만 일어남
+  - 파이썬에서는 list로 구현
+  - `s.append(data)`, `s.pop()`, `s[-1]`
+  - 깊이 우선 탐색(Depth First Search), 백트래킹 종류의 코딩에 효과적
+- 큐(queue) : 삽입과 삭제 연산이 선입선출로 이루어지는 자료구조
+  - 삽입(rear)과 삭제(front)가 양방향으로 일어남
+  - 파이썬에서는 deque로 구현
+  - `s.append(data)`, `s.popleft()`, `s[0]`
+  - 너비 우선 탐색(Breadth First Search)에서 자주 사용
+  - 문제 : doit_11 ~ doit_14
