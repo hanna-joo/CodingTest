@@ -24,4 +24,5 @@
   - 파이썬에서는 deque로 구현
   - `s.append(data)`, `s.popleft()`, `s[0]`
   - 너비 우선 탐색(Breadth First Search)에서 자주 사용
+  - 우선순위 큐  : 값이 들어간 순서와 상관없이 우선순위가 높은 데이터가 먼저 나오는 자료구조, heap 으로 구현
   - 문제 : doit_11 ~ doit_14
