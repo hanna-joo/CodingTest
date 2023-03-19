@@ -22,7 +22,12 @@
 - 큐(queue) : 삽입과 삭제 연산이 선입선출로 이루어지는 자료구조
   - 삽입(rear)과 삭제(front)가 양방향으로 일어남
   - 파이썬에서는 deque로 구현
-  - `s.append(data)`, `s.popleft()`, `s[0]`
+  - `q.append(data)`, `q.popleft()`, `q[0]`
   - 너비 우선 탐색(Breadth First Search)에서 자주 사용
-  - 우선순위 큐  : 값이 들어간 순서와 상관없이 우선순위가 높은 데이터가 먼저 나오는 자료구조, heap 으로 구현
-  - 문제 : doit_11 ~ doit_14
+- 우선순위 큐(priority queue) : 값이 들어간 순서와 상관없이 우선순위가 높은 데이터가 먼저 나오는 자료구조, 
+  - 일반적으로 heap 으로 구현
+    - collections.queue.PriorityQueue 내부적으로 heap 모듈 사용
+  - 기본적으로 정렬 기준은 오름차순 정렬
+    - 정렬 기준 직접 정의해서 적용 가능 (오름차순 정렬보다 우선 적용)
+  - `q.put((우선순위, data))`, `q.get()`, `q.empty()`, `q.full()` `q.qsize()`
+- 문제 : doit_11 ~ doit_14
