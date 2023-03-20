@@ -11,3 +11,4 @@
   - `q.append(data)`, `q.popleft()`, `q[0]`
 - 우선순위 큐(priority queue) : 우선순위 정렬 및 선출
   - `q.put((우선순위, data))`, `q.get()`, `q.empty()`, `q.full()` `q.qsize()`
+# 2. 정렬 알고리즘
