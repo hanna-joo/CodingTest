@@ -34,4 +34,4 @@ while i < n:
     dp[i+1][1] = dp[i][0]
     i += 1
 
-print(dp[n][0] + dp[n][1])
+print(dp[5][0] + dp[5][1])
