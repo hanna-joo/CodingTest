@@ -3,7 +3,7 @@
 # return : 둘 다 거짓인 경우에만 참 출력
 
 # 비트단위 연산자
-# not : ~ (틸드)
+# not : ~ (tilde)
 # and : &
 # or  : |
 # xor : ^
