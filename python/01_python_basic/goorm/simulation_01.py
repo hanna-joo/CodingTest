@@ -21,12 +21,14 @@ def no_couple_score_1(scores):
 
     return answer
 
+
 def no_couple_score_2(scores):
     occur = dict()
     for i in range(len(scores)):
         occur[scores[i]] = 1
 
     return
+
 
 def no_couple_score_3(nums):
 
