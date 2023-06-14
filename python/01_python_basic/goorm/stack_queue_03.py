@@ -10,25 +10,26 @@
 def block_boom_1(cnt, block):
 
     '''
-    1. 첫 글자는 stack에 넣는다
-    2. 다음 글자는 stack 마지막 문자와 비교한다
-    3. 같으면 stack에 넣는다
-    4. 다르면 stack의 크기를 폭파 조건과 비교한다
+    1. 첫 글자는 char에 지정하고 인덱스는 same에 넣는다
+    2. 다음 글자는 char과 비교한다
+    3. 같으면 인덱스를 same에 넣는다
+    4. 다르면 same의 크기를 폭파 조건과 비교한다
     5. 폭파 조건이 된다면 폭파하고 1번으로 돌아간다
-    6. 폭파 조건이 안된다면 stack을 비우고 글자를 넣는다
-    7. stack에 넣을 글자가 없다면 종료한다
+    6. 폭파 조건이 안된다면 same을 비우고 char에 새로운 글자를 지정한다
+    7. 글자의 모든 탐색(for문)이 완료되었는데도 폭파가 되지 않았다면 same을 한번 더 확인한다
+    8. 더 이상 폭파가 발생되지 않거나 맨 마지막 글자들이 폭파된다면 종료된다
     '''
 
     boom = True
-    while boom and block:
-        stack, char = [0], block[0]
+    while boom:
+        same, char = [0], block[0]
         boom = False
         for i in range(1, len(block)):
             if block[i] == char:
-                stack.append(i)
+                same.append(i)
             else:
-                if len(stack) >= cnt:
-                    block = block[:stack[0]] + block[stack[-1]+1:]
+                if len(same) >= cnt:
+                    block = block[:same[0]] + block[same[-1]+1:]
                     boom = True
                     break
                 else:
@@ -36,11 +37,8 @@ def block_boom_1(cnt, block):
                     char = block[i]
             
         if not boom:
-            if len(stack) >= m:
-                block = block[:stack[0]] + block[stack[-1]+1:]
-                boom = True
-            else:
-                break
+            if len(same) >= cnt:
+                block = block[:same[0]] + block[same[-1]+1:]
                 
     if block:
         return block
@@ -58,7 +56,7 @@ if __name__ == '__main__':
     import sys
     input = sys.stdin.readline
 
-    test_cases = [(2, 'ABCCBCCDA'), (3, 'ABCCCBBAAA')]
+    test_cases = [(2, 'ABCCBCCDA'), (3, 'ABCCCBBAAA')] # ADA, CLEAR!
     test_cases.append(int(input()), input().rstrip())
 
     for case in test_cases:
