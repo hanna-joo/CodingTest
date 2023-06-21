@@ -22,7 +22,7 @@
 - 다익스트라, 프림, 크루스칼 등의 비용 최적화하는 그래프 이론
 """
 
-def change_1(change):
+def change(change):
     coin_kind = [40, 20, 10, 5, 1]
     coin_cnt = 0
 
@@ -43,4 +43,4 @@ if __name__ == '__main__':
     test_cases.append(int(input()))
 
     for case in test_cases:
-        print(change_1(case))
+        print(change(case))
