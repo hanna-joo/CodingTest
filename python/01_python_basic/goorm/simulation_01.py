@@ -57,6 +57,7 @@ def no_couple_score_3(scores):
                 answer += scores[j]
     return answer
 
+
 if __name__ == '__main__':
 
     import sys
