@@ -1,4 +1,5 @@
 # 단어 필터
+# keyword : 시뮬레이션, map(), 문자열 메소드
 # return : 주어진 문자열에서 특정 단어 제거
 
 """
@@ -15,6 +16,7 @@
 - index()는 a가 없는 경우 ValueError 발생
 """
 
+
 def word_filter_1(word, msg):
     while word in msg:
         msg = msg.replace(word, '')
@@ -23,6 +25,7 @@ def word_filter_1(word, msg):
         return 'EMPTY'
     else:
         return msg
+
 
 def word_filter_2(word, msg):
     while word in msg:
@@ -33,6 +36,7 @@ def word_filter_2(word, msg):
         return 'EMPTY'
     else:
         return msg
+
 
 if __name__ == '__main__':
 

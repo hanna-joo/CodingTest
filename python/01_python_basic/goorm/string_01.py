@@ -1,4 +1,5 @@
 # 대소문자 바꾸기
+# keyword : 입력 처리, 문자열 메소드
 # return : 주어진 문자열의 대문자는 소문자로, 소문자는 대문자로 바꿔서 출력
 
 """
@@ -33,10 +34,12 @@ def upper_lower_1(s_len, s):
             
     return answer
 
+
 def upper_lower_2(s_len, s):
     answer = s.swapcase()
 
     return answer
+
 
 if __name__ == '__main__':
 

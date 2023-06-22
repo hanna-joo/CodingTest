@@ -1,4 +1,5 @@
 # 큰 수식 찾기
+# keyword : eval(), 연산자 우선순위
 # return : 주어진 두 식의 결과 중 큰 값 출력
 
 """
@@ -6,10 +7,12 @@
 - 주어진 문자열을 연산자 우선순위에 따라 계산
 """
 
+
 def max_value(expressions):
     maximum = max(map(eval, input().split()))
 
     return maximum
+
 
 if __name__ == '__main__':
 
