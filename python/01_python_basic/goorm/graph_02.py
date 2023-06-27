@@ -72,7 +72,7 @@ def biggest_group_1(size, point, info):
 
 def biggest_group_2(size, point, info):
     from collections import deque
-    y, x = map(int, input().split())
+    y, x = map(int, point.split())
     matrix = [[0 for _ in range(size+1)] for _ in range(size+1)]
     visited = [[0 for _ in range(size+1)] for _ in range(size+1)]
 
