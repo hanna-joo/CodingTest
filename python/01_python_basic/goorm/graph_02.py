@@ -23,6 +23,9 @@
 - 배열의 각 칸이 정점
 - 가로와 세로로 각각 인접한 칸이 간선
 - 특정 값을 가지는 칸만 탐색
+- 방문기록은 matrix와 동일한 형태로 따로 배열 생성해서 0과 1로 기록
+- 방문할 때마다 q에 삽입 + 방문기록
+- q에서 뺄 때마다 그룹 크기 (+1)
 """
 
 
@@ -68,9 +71,49 @@ def biggest_group_1(size, point, info):
 
 
 def biggest_group_2(size, point, info):
+    from collections import deque
+    y, x = map(int, input().split())
+    matrix = [[0 for _ in range(size+1)] for _ in range(size+1)]
+    visited = [[0 for _ in range(size+1)] for _ in range(size+1)]
 
+    for i in range(1, size+1):
+        matrix[i] = [0] + list(map(int, info[i].split()))
+    
+    k = matrix[y][x]
 
-    return 
+    dy = [0, 1, 0, -1]
+    dx = [1, 0, -1, 0]
+    group_max = 0
+
+    for i in range(1, size+1):
+        for j in range(1, size+1):
+            # 이미 방문했거나 k값이 아니라면 스킵
+            if visited[i][j] or matrix[i][j] != k:
+                continue
+            # 방문하지 않았고, k값이라면 탐색 시작
+            q = deque()
+            visited[i][j] = 1
+            # 현재 연결 요소에 있는 정점의 개수 세기
+            cnt = 0
+            q.append([i, j])
+            while q:
+                cy, cx = q.popleft()
+                # 실제 방문했을 때 정점 개수 +1
+                cnt += 1
+                for k in range(4):
+                    ny, nx = cy + dy[k], cx + dx[k]
+                    # 이동할 좌표가 범위를 초과하면 스킵
+                    if ny < 1 or nx < 1 or ny > size or nx > size:
+                        continue
+                    # 이동할 좌표가 방문했거나 k값이 아니라면 스킵
+                    if visited[ny][nx] or matrix[ny][nx] != matrix[cy][cx]:
+                        continue
+                    # 이동할 좌표가 확정되었으면 방문 기록
+                    visited[ny][nx] = 1
+                    q.append([ny, nx])
+            group_max = max(group_max, cnt)
+
+    return group_max
 
 
 if __name__ == '__main__':
