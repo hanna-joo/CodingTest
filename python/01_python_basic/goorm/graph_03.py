@@ -107,6 +107,9 @@ def sand_island_2(size, info):
     2) 0 주변을 1로 변경 -> 주변에 0이 있으면 0으로 변경 (전자가 많이 빠름)
     3) 리스트에 침수 포인트 저장 -> update[i][j]와 같이 2차원 배열에 포인트 저장 (후자가 조금 빠름)
     4) BFS 알고리즘 -> DFS 알고리즘 (시간 초과 해결 직접적 원인)
+    5) BFS 알고리즘 수정 (시간 초과 해결 직접적 원인)
+    - 방문기록은 q에 넣을 때 해야 함
+    - q에서 꺼낼 때 방문기록하면 q에 동일한 요소가 여러 번 들어감
     """
     import sys
     sys.setrecursionlimit(12345)
@@ -124,13 +127,14 @@ def sand_island_2(size, info):
         q.append([y, x])
         while q:
             cy, cx = q.popleft()
-            visited[cy][cx] = 1
+            #visited[cy][cx] = 1
             for i in range(4):
                 ny = cy + dy[i]
                 nx = cx + dx[i]
                 if (0<=ny<n) and (0<=nx<m):
                     # 모래 땅이면서 방문하지 않은 경우
                     if ground[ny][nx] and not visited[ny][nx]:
+                        visited[ny][nx] = 1
                         q.append([ny, nx])
                         
     def dfs(y, x):
