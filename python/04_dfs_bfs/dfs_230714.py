@@ -68,17 +68,10 @@ if __name__ == '__main__':
     import sys
     input = sys.stdin.readline
 
-    test_cases = [('6 5', ['1 1 1 1 1',
-                           '1 1 1 1 1',
-                           '1 1 0 1 1',
-                           '1 1 0 1 1',
-                           '1 1 1 1 1',
-                           '1 1 0 1 1']),
-                  ('5 5', ['0 0 1 0 0',
-                           '0 1 1 1 0',
-                           '1 1 1 1 1',
-                           '0 1 1 1 0',
-                           '0 0 1 0 0'])] # 2, -1
+    test_cases = [("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]),
+                  ("hit", "cog", ["hot", "dot", "dog", "lot", "log"]),
+                  ("hit", "cog", ["hot", "lot", "cog", "cit", "lit"]),
+                  ("hit", "cog", ["cog", "dog", "dot", "dit"])] # 4, 0, 0, 4
 
     for case in test_cases:
-        print(solution(case[0], case[1]))
+        print(solution(case[0], case[1], case[2]))
