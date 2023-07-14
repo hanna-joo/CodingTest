@@ -52,6 +52,9 @@ WHERE 조건1
 ```
 
 ## 4. WHERE
+- WHERE 절을 SELECT 절의 집계 항목 / 별칭 등 참조 불가
+- HAVING 절은 SELECT 절의 집계 항목 / 별칭 등 참조 가능
+    - GROUP BY 없이도 사용 가능
 ```sql
 SELECT *
 FROM members
@@ -88,8 +91,8 @@ ORDER BY SUM(salary)
     - 행의 범위를 지정해주는 느낌
     - GROUP BY와 달리 행 개수에 영향을 미치지 않음(열 추가)
 - 이동 평균, 누적 집계, 상위 N개의 값 등을 구하기 위해 함수 적용
-    - 순위 : ROW_NUMBER(), RANK(), DENSE_RANK()
-    - 집계 : SUM(), AVG(), COUNT(), MIN(), MAX()
+    - 순위 : `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`
+    - 집계 : `SUM()`, `AVG()`, `COUNT()`, `MIN()`, `MAX()`
 - 인수
     - PARTITION BY : 쿼리 결과 집합을 파티션으로 분할
     - ORDER BY : 쿼리 결과 집합의 각 파티션 내에서 행의 순서 지정
@@ -147,7 +150,13 @@ WHERE TerritoryID IS NULL OR TerritoryID < 5
 ORDER BY TerritoryID,SalesYear;
 ```
 
-## 7. 쿼리 성능 개선
+## 7. 자주 사용하는 함수
+- `DATE_FORMAT(컬럼, '%Y-%m-%d')`
+- `CONVERT(컬럼, SIGNED)` : 소수 타입의 컬럼 정수 변환
+- `CAST(컬럼 AS SIGNED)` : 소수 타입의 컬럼 정수 변환
+- `ROUND(컬럼, n)` : 소숫점 n자리까지 반올림 (default=0)
+
+## 8. 쿼리 성능 개선
 - SELECT
     - `*` 는 사용하지 말고 필요한 컬럼만 SELECT
     - DISTINCT
