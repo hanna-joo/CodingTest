@@ -151,7 +151,7 @@ ORDER BY TerritoryID,SalesYear;
 ```
 
 ## 7. 자주 사용하는 함수
-- `DATE_FORMAT(컬럼, '%Y-%m-%d')`
+- `DATE_FORMAT(컬럼, '%Y-%m-%d')` : date 타입 컬럼을 특정 포맷의 문자열로 변환 
 - `CONVERT(컬럼, SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `CAST(컬럼 AS SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `ROUND(컬럼, n)` : 소숫점 n자리까지 반올림 (default=0)
