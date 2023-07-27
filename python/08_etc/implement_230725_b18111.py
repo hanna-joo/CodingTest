@@ -1,5 +1,5 @@
 # problem : https://www.acmicpc.net/problem/18111
-# keyword : dfs/bfs
+# keyword : 구현
 # return : 땅 고르기 작업에 걸리는 최소 시간과 땅의 높이 출력
 
 """
@@ -109,3 +109,27 @@ for base in range(257):
         min_tm_h = base
 
 print(min_tm, min_tm_h)
+
+"""
+테스트 케이스
+
+3 4 99
+0 0 0 0
+0 0 0 0
+0 0 0 1
+
+3 4 1
+64 64 64 64
+64 64 64 64
+64 64 64 63
+
+3 4 0
+64 64 64 64
+64 64 64 64
+64 64 64 63
+
+3 3 0
+0 1 1
+1 1 1
+1 1 2
+"""
