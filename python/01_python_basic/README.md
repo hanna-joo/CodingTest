@@ -1,5 +1,6 @@
 # 파이썬 기초
 ## 1. [프로그래머스 Lv.0 문제](https://github.com/hanna-joo/Self_Coding/tree/master/python/01_python_basic/01_programmers)
+- [자주 사용하는 함수](https://github.com/hanna-joo/Self_Coding/blob/master/python/01_python_basic/01_programmers/README.md)
 - 자료형 함수
     - 문자열 (String)
     - 리스트 (List)
