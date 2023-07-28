@@ -9,6 +9,15 @@
 7. [날짜](#날짜)
 ---
 221025 ~ 221114
+## 논리 연산자
+- A and B : A가 False면 A 반환, True면 B 반환
+- A or B : A가 True면 A 반환, False면 B 반환
+```python
+print((2==1) and 'B') # False
+print((1==1) and 'B') # B
+print((1==1) or 'B') # True
+print((2==1) or 'B') # B
+```
 ## String
 - string 은 수정이 불가능한 자료형
 - `문자열.join(리스트)`
