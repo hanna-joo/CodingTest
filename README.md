@@ -4,7 +4,7 @@
 ## python
 - 백준 티어 : [`Silver 5`](https://solved.ac/codcod/)
 
-<div align="center">
+<div align="left">
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=codcod)](https://solved.ac/codcod/)
 
