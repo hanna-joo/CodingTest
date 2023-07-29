@@ -4,14 +4,14 @@
 ## python
 - 백준 티어 : [`Silver 5`](https://solved.ac/codcod/)
 
-<div align="left">
+<div align="center">
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=codcod)](https://solved.ac/codcod/)
 
 </div>
 
 ## sql
-- 프로그래머스 SQL 고득점 Kit : [`level.4`](https://school.programmers.co.kr/learn/challenges?tab=sql_practice_kit)
+- 프로그래머스 SQL 고득점 Kit : [`Level 4`](https://school.programmers.co.kr/learn/challenges?tab=sql_practice_kit)
     - select 2문제
     - group by 5문제
     - join 11문제
