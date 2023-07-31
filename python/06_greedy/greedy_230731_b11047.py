@@ -1,6 +1,6 @@
 # 동전 0
 # source : https://www.acmicpc.net/problem/11047
-# keyword : 그리디
+# keyword : 그리디(배수)
 # return : 합을 K로 만드는 동전 개수의 최솟값 출력
 
 

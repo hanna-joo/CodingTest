@@ -1,6 +1,6 @@
 # 설탕 배달
 # source : https://www.acmicpc.net/problem/2839
-# keyword : 그리디
+# keyword : 그리디(배수아님)
 # return : 설탕 N킬로그램 배달할 때 사용하는 봉지의 최소 개수 출력 (-1)
 
 
