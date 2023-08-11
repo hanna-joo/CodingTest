@@ -15,23 +15,18 @@
 """
 
 
-import sys
-from collections import deque
-input = sys.stdin.readline
-
 N, M = map(int, input().split())
-miro = [[0 for _ in range(M+1)]]
+miro = [[0 for _ in range(M+2)]]
 for _ in range(N):
-    miro.append([0]+[*map(int, list(input().rstrip()))])
+    miro.append([0]+[*map(int, list(input()))]+[0])
+miro.append([0 for _ in range(M+2)])
 
 dy, dx = [-1, 1, 0, 0], [0, 0, -1, 1]
-q = deque([(1, 1)])
+q = [(1, 1)]
 while q:
-    cy, cx = q.popleft()
+    cy, cx = q.pop(0)
     for i in range(4):
         ny, nx = dy[i]+cy, dx[i]+cx
-        if ny<=0 or nx<=0 or ny>N or nx>M:
-            continue
         if miro[ny][nx] == 1:    
             miro[ny][nx] = miro[cy][cx] + 1
             q.append((ny, nx))
