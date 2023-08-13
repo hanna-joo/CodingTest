@@ -2,7 +2,7 @@
 문제를 논리적으로 해결하기 위한 1일 1코딩
 
 ## python
-- 백준 티어 : [`Silver 3`](https://solved.ac/codcod/)
+- 백준 티어 : [`Silver 2`](https://solved.ac/codcod/)
 
 <div align="center">
 
