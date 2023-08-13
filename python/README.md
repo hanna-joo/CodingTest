@@ -109,8 +109,8 @@
   - 100,000 -> O(NlogN)
   - 10,000,000 -> O(N)
 
-  ## 8.2. 입력
-  - open(0).read().split()
-    - 한 번에 모든 입력 받기
-    - 입력 종료 시 `ctrl` + `D`
-  - sys.stdin.readline()
+## 8.2. 입력
+- open(0).read().split()
+  - 한 번에 모든 입력 받기
+  - 입력 종료 시 `ctrl` + `D`
+- sys.stdin.readline()
