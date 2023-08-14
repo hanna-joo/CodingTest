@@ -114,3 +114,15 @@
   - 한 번에 모든 입력 받기
   - 입력 종료 시 `ctrl` + `D`
 - sys.stdin.readline()
+
+## 8.3. iterable
+- zip(iterable)
+```python
+c = ['ABCDEFG', 'HIJKLMN']
+for front, back in zip(*c):
+  print(front, back)
+---
+A X
+B Y
+C Z
+```
