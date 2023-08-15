@@ -29,13 +29,9 @@ for _ in range(int(input())):
     elif op[0] == 'add':
         S.add(op[1])
     elif op[0] == 'remove':
-        if op[1] in S:
-            S.remove(op[1])
+        S.remove(op[1]) if op[1] in S else 0
     elif op[0] == 'toggle':
-        if op[1] in S:
-            S.remove(op[1])
-        else:
-            S.add(op[1])
+        S.remove(op[1]) if op[1] in S else S.add(op[1])
     else:
         print(1 if op[1] in S else 0)
 
