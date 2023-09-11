@@ -113,6 +113,9 @@
 - open(0).read().split()
   - 한 번에 모든 입력 받기
   - 입력 종료 시 `ctrl` + `D`
+- sys.stdin.buffer.read()
+  - 한 번에 모든 입력 받기
+  - 입력 종료 시 `ctrl` + `D`
 - sys.stdin.readline()
 
 ## 8.3. iterable
@@ -126,3 +129,18 @@ A X
 B Y
 C Z
 ```
+
+## 8.4. itertools
+- 순열과 조합을 구할 수 있는 패키지로 [(튜플), (튜플), ...] 형태로 반환
+- 순열 : 서로 다른 n개에서 r개를 택하여 일렬로 나열하는 경우의 수
+    - nPr = n! / (n-r)!
+    - `permutations(iterable, 3)`
+- 조합 : 서로 다른 n개에서 순서 생각하지 않고 r개를 택하는 경우의 수
+    - nCr = n! / (n-r)!r!
+    - `combinations(iterable, 3)`
+- 중복 순열 : 중복 가능한 n개에서 r개 나열하는 경우의 수
+    - nㅠr = n^r
+    - `product(iterable, repeat=3)`
+- 중복 조합 : 중복 가능한 n개에서 순서 생각하지 않고 r개 택하는 경우의 수
+    - nHr = n+r-1Cr
+    - `combinations_with_replacement(iterable, 3)`
