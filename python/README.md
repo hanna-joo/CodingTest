@@ -144,3 +144,7 @@ C Z
 - 중복 조합 : 중복 가능한 n개에서 순서 생각하지 않고 r개 택하는 경우의 수
     - nHr = n+r-1Cr
     - `combinations_with_replacement(iterable, 3)`
+
+## 8.5. GIL (Global Interpreter Lock)
+- 여러 개의 스레드가 파이썬 바이트코드를 한 번에 하나만 사용할 수 있게 락 거는 것
+- 하나의 스레드만 파이썬 인터프리터를 제어할 수 있도록 하는 뮤텍스
