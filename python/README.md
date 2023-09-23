@@ -118,7 +118,8 @@
   - 입력 종료 시 `ctrl` + `D`
 - sys.stdin.readline()
 
-## 8.3. iterable
+## 8.3. iterator
+### (1) iterable과 zip
 - zip(iterable)
 ```python
 c = ['ABCDEFG', 'HIJKLMN']
@@ -129,6 +130,17 @@ A X
 B Y
 C Z
 ```
+## 8.4. 이터레이터와 제너레이터
+### (1) 이터레이터
+- next() 함수 호출 시 계속 그 다음 값을 반환하는 객체
+- 리스트 != 이터레이터
+  - 반복 가능(iterable)하다고 해서 이터레이터 객체가 아님
+  - 리스트는 이터레이터가 아니지만 `iter(리스트)`를 통해 이터레이터로 만들 수 있다.
+- 이터레이터 값 가져오는 방법
+  - StopIteration 예외 : next() 로  가져올 때 이터레이터에 더 반환할 값이 없으면 발생
+  - next() 보다 for문으로 가져오면 StopIteration 예외 발생 안 함
+- 이터레이터는 한 번 읽으면 끝
+  - next()/for문으로 값을 한 번 읽으면 그 값을 다시는 읽을 수 없음
 
 ## 8.4. itertools
 - 순열과 조합을 구할 수 있는 패키지로 [(튜플), (튜플), ...] 형태로 반환
