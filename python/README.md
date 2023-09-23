@@ -130,6 +130,7 @@ A X
 B Y
 C Z
 ```
+
 ## 8.4. 이터레이터와 제너레이터
 ### (1) 이터레이터
 - next() 함수 호출 시 계속 그 다음 값을 반환하는 객체
@@ -142,7 +143,7 @@ C Z
 - 이터레이터는 한 번 읽으면 끝
   - next()/for문으로 값을 한 번 읽으면 그 값을 다시는 읽을 수 없음
 
-## 8.4. itertools
+## 8.5. itertools
 - 순열과 조합을 구할 수 있는 패키지로 [(튜플), (튜플), ...] 형태로 반환
 - 순열 : 서로 다른 n개에서 r개를 택하여 일렬로 나열하는 경우의 수
     - nPr = n! / (n-r)!
@@ -157,7 +158,7 @@ C Z
     - nHr = n+r-1Cr
     - `combinations_with_replacement(iterable, 3)`
 
-## 8.5. GIL (Global Interpreter Lock)
+## 8.6. GIL (Global Interpreter Lock)
 ### (1) GIL
 - GIL 이란?
   - **Python의 객체들에 대한 접근을 보호하는 일종의 뮤텍스**
