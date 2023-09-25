@@ -142,9 +142,44 @@ C Z
   - next() 보다 for문으로 가져오면 StopIteration 예외 발생 안 함
 - 이터레이터는 한 번 읽으면 끝
   - next()/for문으로 값을 한 번 읽으면 그 값을 다시는 읽을 수 없음
+- 이터레이터 생성 방법
+  - 이터레이터 클래스
+  - 제너레이터 함수
+  - 제너레이터 표현식
 
 ### (2) 제너레이터
 - 이터레이터를 생성해주는 함수
+- 제너레이터 객체=이터레이터
+- 차례로 결과를 반환하고자 할 때  return 대신 yield 키워드 사용
+  - yield 문장을 만나면 값 반환 + 현재 상태 기억
+```python
+def generator():
+  yield 'a'
+  yield 'b'
+  yield 'c'
+
+g = generator() # 제너레이터 객체 = 이터레이터
+type(g)
+next(g)
+next(g)
+---
+<class 'generator'>
+'a'
+'c'
+```
+- 제너레이터 표현식 : 함수가 아닌 튜플 표현식으로 제너레이터 만들기
+```python
+# 제너레이터 함수로 만들기
+def generator():
+  for i in range(1, 1000):
+    result = i * i
+    yield result
+gen = generator()
+
+# 제너레이터 튜플 표현식으로 만들기
+gen = (i * i for i in range(1, 1000))
+```
+
 
 ## 8.5. itertools
 - 순열과 조합을 구할 수 있는 패키지로 [(튜플), (튜플), ...] 형태로 반환
