@@ -150,8 +150,11 @@ C Z
 ### (2) 제너레이터
 - 이터레이터를 생성해주는 함수
 - 제너레이터 객체=이터레이터
-- 차례로 결과를 반환하고자 할 때  return 대신 yield 키워드 사용
-  - yield 문장을 만나면 값 반환 + 현재 상태 기억
+- yield의 역할
+  - **제너레이터 함수 생성**
+  - **값 반환** : 차례대로 결과를 반환하고자 할 때 return 대신 사용
+  - **상태 보존** : 생성기 함수 호출되면 생성기 반복자를 반환, yield 발생하면 지역 변수 및 실행 위치 포함한 함수 상태 보존
+  - **반복 제어 및 지연 평가** : 한 번에 하나씩 값을 생성, 루프문에서도 다음 yield문까지만 실행 후 일시 중지
 ```python
 def generator():
   yield 'a'
@@ -180,6 +183,33 @@ gen = generator()
 gen = (i * i for i in range(1, 1000))
 ```
 
+### (3) 제너레이터 특징
+- **메모리 효율적**임
+  - 제너레이터는 현재 상태만 저장하고 한 번에 하나씩 값을 즉시 생성 (모든 값을 한 번에 저장 X)
+  - 리스트 컴프리헨션은 메모리에 모든 값을 한 번에 올림
+- 무한하거나 잠재적으로 큰 데이터 시퀀스에 작업해야 할 때 유용함
+- 호출자와 제너레이터 간 **양방향 통신**이 가능함
+  - 값 발신 : yield 오른쪽 값을 함수 밖으로 전달
+  - 값 수신 : 전달 받은 값을 yield 왼쪽 변수에 전달
+  - yield와 send() 함께 사용
+    - gen.send(value) 호출 시 value가 생성기 함수로 전송
+    - 생성기가 현재 일시 중지된 'yield'의 왼쪽에 있는 변수에 값을 전달
+    - 생성기 함수는 일시 중지된 'yield' 뒤에부터 다음 yield 만날 때까지 실행
+```python
+def my_generator():
+    yield "Step 1"
+    value = yield "Step 2"  # Pauses here after the second next(gen) call
+    yield f"Step 3: Received value '{value}'"
+    yield "Step 4"
+
+gen = my_generator()
+print(next(gen))  # Output: "Step 1"
+print(next(gen))  # Output: "Step 2"
+# Sending a value into the generator and resuming it
+response = gen.send("Hello")
+print(response)   # Output: "Step 3: Received value 'Hello'"
+```
+
 
 ## 8.5. itertools
 - 순열과 조합을 구할 수 있는 패키지로 [(튜플), (튜플), ...] 형태로 반환
@@ -195,6 +225,7 @@ gen = (i * i for i in range(1, 1000))
 - 중복 조합 : 중복 가능한 n개에서 순서 생각하지 않고 r개 택하는 경우의 수
     - nHr = n+r-1Cr
     - `combinations_with_replacement(iterable, 3)`
+
 
 ## 8.6. GIL (Global Interpreter Lock)
 ### (1) GIL
@@ -237,3 +268,7 @@ gen = (i * i for i in range(1, 1000))
 - Mutex
   - 멀티 쓰레딩 환경에서 여러 개의 쓰레드가 어떠한 공유 자원에 접근 가능할 때 그 공유 자원에 접근하기 위해 가지고 있어야 하는 일종의 열쇠
   - 한 쓰레드가 특정 공유 자원에 뮤텍스를 가지고 있다면, 다른 쓰레드들은 접근 중인 쓰레드가 뮤텍스를 풀어줄 때까지 기다려야 함
+
+
+## 8.7. 스페셜 메서드
+- `__iter__`, `__next__`, `__call__`, `__str__`
