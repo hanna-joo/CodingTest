@@ -9,35 +9,31 @@
 4. 경로 길이가 항공권 개수+1 인 경우 경로 반환
 """
 
+from collections import defaultdict
+
+def dfs(cur, path):
+    if len(path) == count+1:
+        answer.append(path)
+        return
+    for i, nxt in enumerate(graph[cur]):
+        if graph[cur][i] == '':
+            continue
+        graph[cur][i] = ''
+        dfs(nxt, path+[nxt])
+        graph[cur][i] = nxt
+
 def solution(tickets):
-    from collections import defaultdict
-    graph = defaultdict(list)
-    for s, e in tickets:
-        graph[s].append(e)
-    for key in graph.keys():
-        graph[key].sort()
-    
-    def dfs(node, graph, path):
-        global answer
-        if node == 0:
-            return
-        path.append(node)
-        for i, nxt in enumerate(graph[node]):
-            graph[node][i] = 0
-            temp = path.copy()
-            dfs(nxt, graph, temp)
-            if answer:
-                return 
-            graph[node][i] = nxt
-        if len(path) == len(tickets)+1:
-            answer = path
-            return
-    
-    global answer
+    global graph, answer, count
     answer = []
-    dfs("ICN", graph, [])
-    
-    return answer
+    count = len(tickets)
+    graph = defaultdict(list)
+    for u, v in tickets:
+        graph[u].append(v)
+    for k in graph.keys():
+        graph[k].sort()
+    dfs("ICN", ["ICN"])
+    answer.sort()
+    return answer[0]
 
 
 if __name__ == '__main__':
@@ -52,4 +48,4 @@ if __name__ == '__main__':
                 # ["ICN", "ATL", "ICN", "SFO", "ATL", "SFO"]
                 # ["ICN", "CCC", "DDD", "ICN", "AAA", "BBB", "AAA", "BBB"]
     for case in test_cases:
-        print(solution(case[0], case[1], case[2]))
+        print(solution(case))
