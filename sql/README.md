@@ -26,23 +26,26 @@ LIMIT 숫자
 ```
 
 ## 2. SELECT
-- DISTINCT : 중복 제거
-- CONCAT() : 문자열 합치기
+- `DISTINCT` : 중복 제거
+- `CONCAT()` : 문자열 합치기
+- `IFNULL(컬럼, '값')` : 컬럼이 NULL이면 'string'으로 보여주기
+- `NULL AS 컬럼명` : 값이 NULL인 컬럼 추가 
 ```sql
-SELECT DISTINCT 컬럼1, CONCAT(컬럼2, 컬럼3)
+SELECT DISTINCT 컬럼1, CONCAT(컬럼2, 컬럼3), IFNULL(컬럼4, 표현식), NULL AS 컬럼5
 FROM 테이블명
 WHERE 조건
 ```
 
 ## 3. FROM
 - 서브쿼리가 온다면 별칭(alias) 필수
-- JOIN : 열 합치기
+- `JOIN ~ ON` : 열 합치기
     - 종류
         - INNER 
         - LEFT / RIGHT / FULL OUTER
         - CROSS : 한 테이블의 모든 행(n)을 다른 테이블의 모든 행(m)과 조인해서 n*m행 생성
-    - cf. UNION : 쿼리 사이에 넣기, 행 합치기(중복 값 삭제)
+    - cf. UNION : 쿼리와 쿼리 사이에 넣기, 행 합치기(중복 값 삭제)
     - cf. UNION ALL : 행 합치기(중복 값 모두 포함)
+- `FROM DUAL` : 테이블 생성할 필요 없이 임시로 SQL 실행 시 가상 공간
 ```sql
 SELECT 컬럼1, 컬럼2
 FROM 테이블1
@@ -77,6 +80,7 @@ LIMIT 10
     - WHERE 절 (X)
     - HAVING 절 (O)
     - ORDER BY 절 (O)
+- 집계 함수 쓰지 않으면 그룹 별 첫번째 행 출력
 ```sql
 SELECT SUM(salary-age), AVG(age), MIN(height), COUNT(*), COUNT(phone), COUNT(DISTINCT)
 FROM members
@@ -151,10 +155,19 @@ ORDER BY TerritoryID,SalesYear;
 ```
 
 ## 7. 자주 사용하는 함수
-- `DATE_FORMAT(컬럼, '%Y-%m-%d')` : date 타입 컬럼을 특정 포맷의 문자열로 변환 
+- `DATE_FORMAT(컬럼, '%Y-%m-%d')` : date 타입 컬럼을 특정 포맷의 문자열로 변환
+    - 연도 : %Y (4), %y (2)
+    - 월 : %M (영문), %m (숫자)
+    - 일 : %D (영문), %d (01-31)
+    - 시간 : %H (00-23), %h (00-12)
+    - 분 : %i (00-59)
+    - 초 : %S (00-59)
+- `MONTH(컬럼)` : date 타입 컬럼에서 월만 숫자로 반환
 - `CONVERT(컬럼, SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `CAST(컬럼 AS SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `ROUND(컬럼, n)` : 소숫점 n자리까지 반올림 (default=0)
+- `IFNULL(컬럼, 표현식)` : 컬럼 값이 NULL인 경우 표현식으로 대체
+- `쿼리 UNION 쿼리` : 두 테이블의 행 합치기
 
 ## 8. 쿼리 성능 개선
 - SELECT
@@ -176,6 +189,45 @@ ORDER BY TerritoryID,SalesYear;
 - 암시적 변환 금지
     - 암시적 변환 : 데이터 타입이 다른 경우 DB가 자동으로 타입 변환 및 값 비교
     - 불필요한 리소스 소모되므로 동일한 타입의 값만 비교
+
+## 9. WITH, CTE
+### (1) CTE
+- Common Table Expression
+- 해당 SQL문 내에서만 존재하는 일시적인 결과의 집합(테이블)
+- WITH은 CTE를 생성하는 문법
+- CTE를 이용해 다른 CTE를 정의하는 것도 가능
+- CTE의 열 이름은 SELECT 구문 말고도 밖에서 정할 수 있음
+```sql
+WITH 
+    CTE1 AS (SELECT A, B FROM TABLE1)
+    CTE2 AS (SELECT C, D FROM TABLE2)
+SELECT B, D FROM CTE1 JOIN CTE2
+WHERE CTE1.A = CTE2.C;
+```
+### (2) Recursive CTE
+- 서브쿼리에서 스스로를 참조하는 CTE
+- UNION 기준으로 2 파트로 구분
+    - 첫번째 SELECT : 최초 행 반환 (non-recursive)
+    - 두번째 SELECT : 추가 행 반환 (recursive)
+- 행의 데이터 크기는 non-recursive 파트에 의해 확정됨
+    - 이를 방지하기 위해 CAST를 통해 형 변환 필요
+```sql
+WITH RECURSIVE CTE (N) AS
+(
+    SELECT 1
+    UNION ALL
+    SELECT N + 1 FROM CTE WHERE N < 5
+)
+SELECT * FROM cte;
+
+WITH RECURSIVE cte AS
+(
+  SELECT 1 AS n, CAST('abc' AS CHAR(20)) AS str
+  UNION ALL
+  SELECT n + 1, CONCAT(str, str) FROM cte WHERE n < 3
+)
+SELECT * FROM cte;
+```
 
 ## REFERENCES
 - [microsoft OVER 절](https://learn.microsoft.com/ko-kr/sql/t-sql/queries/select-over-clause-transact-sql?view=sql-server-ver15)
