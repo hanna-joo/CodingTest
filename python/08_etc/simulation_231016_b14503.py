@@ -26,29 +26,26 @@ import sys
 input = sys.stdin.readline
 N, M = map(int, input().split())
 r, c, d = map(int, input().split())
-move = [(-1, 0), (0, -1), (1, 0), (0, 1)]
+dr, dc = [-1, 0, 1, 0], [0, 1, 0, -1]
 room = [[*map(int, input().split())] for _ in range(N)]
-cy, cx = r, c
-cnt = 0
-while True:
-    if room[cy][cx] == 0:
-        room[cy][cx] = 2
-        cnt += 1
-    unclean = False
-    tmp = d
+
+room[r][c] = 2
+cnt = 1
+while room[r][c] != 1:
+    clean = 0
     for _ in range(4):
-        ny, nx = cy+move[tmp][0], cx+move[tmp][1]
-        if room[ny][nx] == 0:
-            unclean = True
+        d = (d+1) % 4
+        nr, nc = r+dr[d], c+dc[d]
+        if 0<=nr<N and 0<=nc<M and room[nr][nc] == 0:
+            r, c = nr, nc
+            room[r][c] = 2
+            cnt += 1
+            clean = 1
             break
-        tmp = (tmp+1) % 4
-    if unclean:
-        cy, cx, d = ny, nx, tmp
-    else:
-        ny, nx = cy-move[d][0], cx-move[d][1]
-        if room[ny][nx] == 1:
-            break
-        cy, cx = ny, nx
+            
+    if clean == 0:
+        r -= dr[d]
+        c -= dc[d]
 
 print(cnt)
 
