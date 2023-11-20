@@ -1,5 +1,6 @@
 # 2022 테크 여름인턴십 코딩테스트 - 성격 유형 검사하기 (lv.1)
 # source : https://school.programmers.co.kr/learn/courses/30/lessons/118666
+# hint : https://tech.kakao.com/2022/07/13/2022-coding-test-summer-internship/
 # keyword : 해시, 조건
 # return : 지표 순서대로 유형 결과 출력
 
