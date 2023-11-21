@@ -1,0 +1,17 @@
+-- problem : https://school.programmers.co.kr/learn/courses/30/lessons/131537
+-- 2022년 03월의 오프라인/온라인 상품 판매 데이터 출력
+-- 조회 : 판매일자, 상품ID, 유저ID, 판매량
+-- 정렬 : 판매일 ASC, 상품ID ASC, 유저ID ASC
+-- 주의 : 오프라인의 USER_ID는 NULL로 표시
+
+SELECT DATE_FORMAT(SALES_DATE, '%Y-%m-%d') AS SALES_DATE, PRODUCT_ID, NULL AS USER_ID, SALES_AMOUNT
+FROM OFFLINE_SALE 
+WHERE SALES_DATE LIKE '2022-03%'
+
+UNION
+
+SELECT DATE_FORMAT(SALES_DATE, '%Y-%m-%d') AS SALES_DATE, PRODUCT_ID, USER_ID, SALES_AMOUNT
+FROM ONLINE_SALE
+WHERE SALES_DATE LIKE '2022-03%'
+
+ORDER BY SALES_DATE, PRODUCT_ID, USER_ID;
