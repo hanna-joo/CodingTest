@@ -1,0 +1,29 @@
+-- problem : https://school.programmers.co.kr/learn/courses/30/lessons/151141
+-- '트럭' 대여 기록 별로 대여 금액
+-- 조회 : 대여 기록 ID, 대여 금액
+-- 정렬 : 대여 금액 DESC, 대여 기록 ID DESC
+-- 구현 : 대여 금액 = 1일 금액 * 대여 기간 * 할인율
+
+WITH A AS (
+    SELECT A.HISTORY_ID,
+        B.DAILY_FEE,
+        DATEDIFF(A.END_DATE, A.START_DATE)+1 AS DURATION,
+        CASE
+            WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 >= 90 THEN '90일 이상'
+            WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 BETWEEN 30 AND 89 THEN '30일 이상'
+            WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 BETWEEN 7 AND 29 THEN '7일 이상'
+            ELSE '7일 미만'
+        END AS DURATION_TYPE
+    FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY AS A,
+        CAR_RENTAL_COMPANY_CAR AS B
+    WHERE B.CAR_TYPE = '트럭'
+        AND A.CAR_ID = B.CAR_ID
+)
+
+SELECT HISTORY_ID,
+    CAST((DAILY_FEE * DURATION * (1-IFNULL(DISCOUNT_RATE, 0)/100)) AS SIGNED) AS FEE
+FROM A
+    LEFT JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN AS B
+    ON A.DURATION_TYPE = B.DURATION_TYPE
+    AND B.CAR_TYPE = '트럭'
+ORDER BY FEE DESC, HISTORY_ID DESC;
