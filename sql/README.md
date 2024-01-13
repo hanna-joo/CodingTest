@@ -163,6 +163,7 @@ ORDER BY TerritoryID,SalesYear;
     - 분 : %i (00-59)
     - 초 : %S (00-59)
 - `MONTH(컬럼)` : date 타입 컬럼에서 월만 숫자로 반환
+- `WEEKDAY(컬럼)` : 요일을 숫자로 반환 (월=0 ~ 일=6) 
 - `CONVERT(컬럼, SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `CAST(컬럼 AS SIGNED)` : 소수 타입의 컬럼 정수 변환
 - `ROUND(컬럼, n)` : 소숫점 n자리까지 반올림 (default=0)
